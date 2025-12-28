@@ -628,6 +628,10 @@ body {
 }
 
 
+/* ===============================
+   SEÇÃO NOTÍCIAS
+================================ */
+
 .news-section {
   background: #111;
   padding: 120px 0;
@@ -638,6 +642,8 @@ body {
   margin: 0 auto;
   padding: 0 24px;
 }
+
+/* ===== HEADER ===== */
 
 .news-header {
   display: grid;
@@ -653,6 +659,7 @@ body {
   color: #777;
 }
 
+/* Título com animação no scroll */
 .news-title {
   font-size: 32px;
   font-weight: 500;
@@ -660,15 +667,35 @@ body {
   position: relative;
 }
 
-.news-title::after {
+/* Estado inicial (scroll) */
+.reveal-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+/* Quando aparece */
+.reveal-title.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Linha vermelha animada */
+.reveal-title::after {
   content: "";
   display: block;
-  width: 50px;
+  width: 0;
   height: 2px;
   background: #b11226;
   margin-top: 12px;
+  transition: width .6s ease;
 }
 
+.reveal-title.active::after {
+  width: 50px;
+}
+
+/* Link "Ver todos" */
 .news-all {
   font-size: 12px;
   letter-spacing: 1.5px;
@@ -677,11 +704,15 @@ body {
   text-decoration: none;
 }
 
+/* ===== GRID ===== */
+
 .news-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
+
+/* ===== CARD ===== */
 
 .news-card {
   background: #1a1a1a;
@@ -690,6 +721,7 @@ body {
   gap: 30px;
   border: 1px solid rgba(255,255,255,0.05);
   transition: transform .4s ease, border-color .4s ease;
+    overflow: visible;
 }
 
 .news-card:hover {
@@ -697,6 +729,7 @@ body {
   border-color: rgba(177,18,38,0.6);
 }
 
+/* Data */
 .news-date {
   text-align: center;
   color: #888;
@@ -708,6 +741,7 @@ body {
   display: block;
 }
 
+/* Conteúdo */
 .news-body h3 {
   font-size: 20px;
   color: #fff;
@@ -721,6 +755,8 @@ body {
   color: #bbb;
 }
 
+/* ===== LINKS COM TRACINHO ANIMADO ===== */
+
 .news-link {
   margin-top: 22px;
   display: inline-flex;
@@ -729,16 +765,46 @@ body {
   font-size: 14px;
   color: #fff;
   text-decoration: none;
+  position: relative; /* IMPORTANTE */
 }
 
-.news-link span {
+
+/* Componente reutilizável */
+.link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Tracinho vermelho */
+.link-underline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: #b11226;
+  transition: width .3s ease;
+}
+
+.link-underline:hover::before {
+  width: 100%;
+}
+
+/* Setinha */
+.link-underline span {
   transition: transform .3s ease;
 }
 
-.news-link:hover span {
-  transform: translateX(5px);
+.link-underline:hover span {
+  transform: translate(4px, -4px);
 }
 
+/* ===== RESPONSIVO ===== */
 
 @media (max-width: 768px) {
   .news-header {
@@ -752,5 +818,243 @@ body {
 
   .news-card {
     flex-direction: column;
+  }
+}
+
+/* ===== NOTÍCIAS PEQUENAS ===== */
+
+.news-mini-list {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 40px;
+}
+
+.news-mini-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.news-mini-date {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.news-mini-item h4 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #fff;
+}
+
+/* Hover refinado */
+.news-mini-item:hover h4 {
+  color: #f2f2f2;
+}
+
+@media (max-width: 1024px) {
+  .news-mini-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .news-mini-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==============================
+   SEÇÃO SOBRE O ADVOGADO
+================================ */
+
+.lawyer-section {
+  background: #0f0f0f;
+  padding: 140px 0;
+}
+
+.lawyer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ==============================
+   FOTO DO ADVOGADO
+================================ */
+
+.lawyer-photo {
+  position: relative;
+  padding-top: 42px; /* alinhamento com o título */
+}
+
+.lawyer-photo img {
+  width: 100%;
+  display: block;
+  filter: grayscale(100%);
+}
+
+/* moldura sutil */
+.lawyer-photo::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255,255,255,0.15);
+  z-index: -1;
+}
+
+.lawyer-name {
+  display: block;
+  margin-top: 18px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lawyer-oab {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #777;
+}
+
+/* ==============================
+   CONTEÚDO (TEXTO)
+================================ */
+
+.lawyer-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==============================
+   TÍTULO DA SEÇÃO
+================================ */
+
+.lawyer-header {
+  margin-bottom: 50px;
+}
+
+.lawyer-index {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+.lawyer-title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 8px;
+  position: relative;
+}
+
+/* linha vermelha animada */
+.lawyer-title::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #b11226;
+  margin-top: 12px;
+  transition: width 0.6s ease;
+}
+
+/* ativa a linha ao scroll */
+.reveal.active .lawyer-title::after {
+  width: 50px;
+}
+
+/* ==============================
+   BLOCOS INSTITUCIONAIS
+================================ */
+
+.lawyer-block {
+  margin-bottom: 42px;
+}
+
+.lawyer-block h3 {
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #b11226;
+  margin-bottom: 14px;
+}
+
+.lawyer-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lawyer-block li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #bbb;
+  position: relative;
+  padding-left: 16px;
+}
+
+.lawyer-block li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #b11226;
+}
+
+/* ==============================
+   ANIMAÇÃO SCROLL (REVEAL)
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 {
+  transition-delay: 0.15s;
+}
+
+/* ==============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 900px) {
+  .lawyer-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .lawyer-photo {
+    padding-top: 0;
+  }
+
+  .lawyer-photo::after {
+    top: 10px;
+    left: 10px;
   }
 }
