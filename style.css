@@ -292,66 +292,148 @@ body {
   }
 }
 
-/* ===== SOBRE O ESCRITÓRIO ===== */
-.about {
-  padding: 120px 20px;
-  background: #0e0e0e;
-}
-
-.about__container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-/* Imagem */
-.about__image {
+.about-video {
   position: relative;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
+  background: #0f0f0f;
 }
 
-.about__image img {
+/* vídeo ocupa tudo */
+.about-video-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%) brightness(0.85);
 }
 
-/* Texto */
-.about__content h2 {
-  font-size: 2rem;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+.about-video-top-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    #0f0f0f 0%,
+    rgba(15,15,15,0.85) 40%,
+    rgba(15,15,15,0) 100%
+  );
+}
+
+/* overlay escuro */
+.about-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15,15,15,0.45),
+    rgba(15,15,15,0.25)
+  );
+}
+
+/* conteúdo */
+.about-video-content {
+  position: absolute;
+  z-index: 3;
+  max-width: 600px;
+  padding: 0 24px;
+  left: 8%;
+  top: 42%;
+  transform: translateY(-50%);
+}
+
+.about-video-inner {
+  will-change: opacity, transform;
+}
+
+.about-index {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+.about-video-content h2 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #fff;
+  margin: 10px 0;
 }
 
 .about-line {
   display: block;
   width: 60px;
   height: 2px;
-  background: var(--primary);
-  margin: 20px 0;
+  background: #b11226;
+  margin: 18px 0 30px;
 }
 
-.about__content p {
-  color: var(--gray);
-  margin-bottom: 1rem;
-  line-height: 1.7;
-  max-width: 520px;
+.about-video-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ddd;
+  margin-bottom: 18px;
 }
 
-@media (max-width: 768px) {
-  .about__container {
-    grid-template-columns: 1fr;
-    gap: 40px;
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-video-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    #0f0f0f 0%,
+    rgba(15,15,15,0.7) 45%,
+    rgba(15,15,15,0) 100%
+  );
+}
+
+.about-video-text-bg {
+  background: linear-gradient(
+    to bottom,
+    rgba(15,15,15,0.55),
+    rgba(15,15,15,0.35)
+  );
+  padding: 44px 40px;
+  border-left: 2px solid rgba(177,18,38,0.7);
+  backdrop-filter: blur(2px);
+}
+
+
+@media (max-width: 900px) {
+  .about-video-content {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    text-align: center;
   }
 
-  .about__content h2 {
-    font-size: 1.6rem;
+  .about-video-text-bg {
+    padding: 32px 26px;
+    border-left: none;
+    border-top: 2px solid rgba(177,18,38,0.6);
   }
 
-  .about__content p {
-    max-width: 100%;
+  .about-line {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -1056,5 +1138,468 @@ body {
   .lawyer-photo::after {
     top: 10px;
     left: 10px;
+  }
+}
+
+
+/* ==============================
+   SEÇÃO CONTATO
+================================ */
+
+.contact-section {
+  background: #fff;
+  padding: 140px 0;
+}
+
+.contact-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==============================
+   TÍTULO
+================================ */
+
+.contact-header {
+  margin-bottom: 60px;
+}
+
+.contact-index {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+.contact-title {
+  font-size: 34px;
+  font-weight: 500;
+  color: #111;
+  margin-top: 6px;
+  position: relative;
+}
+
+/* linha animada */
+.contact-title::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #b11226;
+  margin-top: 14px;
+  transition: width .6s ease;
+}
+
+.reveal.active .contact-title::after {
+  width: 50px;
+}
+
+/* ==============================
+   FORMULÁRIO
+================================ */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  transition: border-color .3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #b11226;
+}
+
+.form-field.full {
+  grid-column: 1 / -1;
+}
+
+/* ==============================
+   LGPD + CHECKBOX
+================================ */
+
+.form-lgpd {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #777;
+}
+
+.form-checkbox {
+  font-size: 13px;
+  color: #444;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* ==============================
+   BOTÃO
+================================ */
+
+.contact-button {
+  margin-top: 10px;
+  align-self: flex-start;
+  padding: 14px 42px;
+  background: #111;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background .3s ease;
+}
+
+.contact-button:hover {
+  background: #b11226;
+}
+
+/* loading */
+.contact-button.loading .btn-text {
+  display: none;
+}
+
+.contact-button.loading .btn-loading {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==============================
+   FEEDBACK
+================================ */
+
+.form-feedback {
+  display: none;
+  padding: 14px 18px;
+  font-size: 13px;
+  border-left: 3px solid;
+}
+
+.form-feedback.success {
+  background: #f3f8f5;
+  color: #1d6b45;
+  border-color: #1d6b45;
+}
+
+.form-feedback.error {
+  background: #fff4f4;
+  color: #8a1f1f;
+  border-color: #b11226;
+}
+
+.form-feedback.show {
+  display: block;
+}
+
+/* ==============================
+   ANIMAÇÃO SCROLL (REVEAL)
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* atraso opcional */
+.delay-1 {
+  transition-delay: .15s;
+}
+
+.delay-2 {
+  transition-delay: .3s;
+}
+
+.delay-3 {
+  transition-delay: .45s;
+}
+
+.delay-4 {
+  transition-delay: .6s;
+}
+
+.form-field {
+  position: relative;
+}
+
+.form-field label {
+  display: inline-block;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #444;
+  transition: color .3s ease, letter-spacing .3s ease;
+}
+
+/* quando input está focado */
+.form-field input:focus + label,
+.form-field textarea:focus + label {
+  color: #b11226;
+  letter-spacing: 0.5px;
+}
+
+.form-field::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background: #b11226;
+  transition: width .4s ease;
+}
+
+.form-field:focus-within::after {
+  width: 100%;
+}
+
+
+/* ==============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-button {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+.footer {
+  background: #0f0f0f;
+  color: #bbb;
+  padding: 100px 0 40px;
+  font-size: 14px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==============================
+   PARTE SUPERIOR
+================================ */
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.footer-brand img {
+  max-width: 180px;
+}
+
+.footer-info p {
+  line-height: 1.8;
+  color: #aaa;
+  margin-bottom: 14px;
+}
+
+/* ==============================
+   DIVISOR
+================================ */
+
+.footer-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 50px 0 40px;
+}
+
+/* ==============================
+   PARTE INFERIOR
+================================ */
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-copy p {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.6;
+}
+
+.footer-copy a {
+  color: #777;
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+.footer-copy a:hover {
+  color: #b11226;
+}
+
+/* ==============================
+   REDES SOCIAIS
+================================ */
+
+.footer-social {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-social a {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  transition: all .3s ease;
+}
+
+.footer-social a:hover {
+  border-color: #b11226;
+  color: #b11226;
+  transform: translateY(-3px);
+}
+
+/* ==============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 768px) {
+
+  .footer-main {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .footer-social {
+    margin-top: 10px;
+  }
+}
+
+
+/* ==============================
+   MAPA
+================================ */
+
+.map-section {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+/* overlay escuro */
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15,15,15,0.75),
+    rgba(15,15,15,0.3)
+  );
+  z-index: 1;
+}
+
+/* texto sobre o mapa */
+.map-info {
+  position: absolute;
+  z-index: 2;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 320px;
+}
+
+.map-info h3 {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.map-info p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #ddd;
+}
+
+.map-index {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+/* ==============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 768px) {
+  .map-info {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
   }
 }

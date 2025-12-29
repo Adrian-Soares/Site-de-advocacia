@@ -55,33 +55,39 @@
 
 </section>
 
-<section class="about">
-  <div class="container about__container">
+<section class="about-video">
+  <span class="about-video-top-fade"></span>
+  <video 
+    class="about-video-bg"
+    src="0_Law_Justice_3840x2160.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
 
-    <div class="about__image scroll-animate">
-  <img 
-    src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a" 
-    alt="Escritório de Advocacia"
-  >
-</div>
+  <div class="about-video-content">
+  <div class="about-video-text-bg">
+    <div class="about-video-inner scroll-animate">
+    <span class="about-index"></span>
+    <h2>Sobre o Escritório</h2>
+    <span class="about-line"></span>
 
-<div class="about__content scroll-animate delay">
-  <h2>Sobre o Escritório</h2>
-  <span class="about-line"></span>
 
-      <p>
-        O escritório de Advocacia atua com foco na excelência técnica,
-        ética profissional e comprometimento com cada cliente.
-      </p>
+    <p>
+      Atuamos com foco na excelência técnica, na ética profissional
+      e no comprometimento absoluto com cada cliente.
+    </p>
 
-      <p>
-        Nossa atuação é pautada pela análise criteriosa de cada caso, buscando
-        soluções jurídicas sólidas, responsáveis e alinhadas aos interesses
-        de longo prazo de quem confia em nosso trabalho.
-      </p>
-    </div>
-
+    <p>
+      Nossa atuação é pautada por uma análise criteriosa de cada caso,
+      buscando soluções jurídicas sólidas, responsáveis e alinhadas
+      aos interesses de longo prazo de quem confia em nosso trabalho.
+    </p>
   </div>
+
+  <span class="about-video-bottom-fade"></span>
+
 </section>
 
 <section class="areas" id="areas">
@@ -321,7 +327,147 @@
   </div>
 </section>
 
+<section class="contact-section">
+  <div class="contact-container">
 
+    <div class="contact-header reveal">
+      <span class="contact-index"></span>
+      <h2 class="contact-title">Contato</h2>
+    </div>
+
+    <form class="contact-form reveal delay-1">
+
+     <div class="form-grid">
+  <div class="form-field reveal delay-1">
+    <label>Nome</label>
+    <input type="text" required>
+  </div>
+
+  <div class="form-field reveal delay-2">
+    <label>E-mail</label>
+    <input type="email" required>
+  </div>
+
+  <div class="form-field reveal delay-3">
+    <label>Telefone</label>
+    <input type="tel" required>
+  </div>
+</div>
+
+<div class="form-field full reveal delay-4">
+  <label>Mensagem</label>
+  <textarea rows="5" required></textarea>
+</div>
+
+      <p class="form-lgpd">
+        Informamos que os seus dados pessoais inseridos neste campo são utilizados
+        exclusivamente para retornar à solicitação feita pelo titular de dados,
+        nos termos do artigo 7º, V, da Lei nº 13.709/18 (LGPD).
+      </p>
+
+      <label class="form-checkbox">
+        <input type="checkbox" required>
+        <span>Li e aceito os termos.</span>
+      </label>
+
+      <!-- Feedback -->
+      <div class="form-feedback success">
+        Mensagem enviada com sucesso. Em breve entraremos em contato.
+      </div>
+
+      <div class="form-feedback error">
+        Preencha corretamente todos os campos obrigatórios.
+      </div>
+
+      <button type="submit" class="contact-button">
+        <span class="btn-text">Enviar</span>
+        <span class="btn-loading"></span>
+      </button>
+
+    </form>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="map-overlay"></div>
+
+  <iframe
+    class="map-iframe"
+    src="https://www.google.com/maps?q=Recife%20PE&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <div class="map-info">
+    <span class="map-index"></span>
+    <h3>Localização</h3>
+    <p>
+      Av. Exemplo, nº 123 – Centro<br>
+      Recife – PE · CEP 00000-000
+    </p>
+  </div>
+</section>
+
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Logo + Informações -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <!-- Logo do escritório -->
+        <img src="logo.png" alt="escritorio de advocacia">
+      </div>
+
+      <div class="footer-info">
+        <p>
+          Av. Exemplo, nº 123 – Centro<br>
+          CEP 00000-000 – Recife / PE
+        </p>
+
+        <p>
+          contato@escritorioadvocacia.com.br
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Linha divisória -->
+    <span class="footer-divider"></span>
+
+    <!-- Rodapé inferior -->
+    <div class="footer-bottom">
+
+      <div class="footer-copy">
+        <p>
+          <a href="#">Política de Privacidade</a> ·
+          contato@ricardoramosadvocacia.com.br
+        </p>
+
+        <p>
+          © 2025 Ricardo Ramos Advocacia · Criado por Adrian Soares ·
+          Todos os direitos reservados.
+        </p>
+      </div>
+
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">
+          <i data-lucide="facebook"></i>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <i data-lucide="instagram"></i>
+        </a>
+        <a href="#" aria-label="WhatsApp">
+          <i data-lucide="message-circle"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
 
 <script src="script.js"></script>
 
@@ -360,6 +506,50 @@
   reveals.forEach(el => observer.observe(el));
 </script>
 
+<script>
+  const video = document.querySelector('.about-video-bg');
+
+  window.addEventListener('scroll', () => {
+    if (!video) return;
+
+    const rect = video.parentElement.getBoundingClientRect();
+    const scrollProgress = rect.top / window.innerHeight;
+
+    const translateY = scrollProgress * 40; // ajuste fino
+    video.style.transform = `translateY(${translateY}px)`;
+  });
+</script>
+
+<script>
+const form = document.querySelector('.contact-form');
+const success = document.querySelector('.form-feedback.success');
+const error = document.querySelector('.form-feedback.error');
+const button = document.querySelector('.contact-button');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  success.classList.remove('show');
+  error.classList.remove('show');
+  button.classList.add('loading');
+
+  setTimeout(() => {
+    button.classList.remove('loading');
+
+    if (form.checkValidity()) {
+      success.classList.add('show');
+      form.reset();
+    } else {
+      error.classList.add('show');
+    }
+  }, 1200);
+});
+</script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
 
 </body>
 </html>
