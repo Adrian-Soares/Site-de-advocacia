@@ -56,5 +56,9 @@ scrollElements.forEach(el => observer.observe(el));
 
 lucide.createIcons();
 
+const contactForm = document.querySelector('.contact-form');
 
-
+contactForm.addEventListener('submit', e => {
+  e.preventDefault();
+  // lógica do contato
+});

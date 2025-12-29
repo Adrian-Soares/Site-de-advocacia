@@ -49,10 +49,28 @@ body {
 }
 
 .logo {
-  font-weight: 600;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
+
+.logo img {
+  height: 180px;            /* AJUSTE AQUI conforme sua logo */
+  width: auto;
+  display: block;
+  transition: opacity .3s ease;
+}
+
+/* efeito sutil no hover */
+.logo:hover img {
+  opacity: .87;
+}
+
+/* quando header estiver com scroll */
+.header.scrolled .logo img {
+  filter: brightness(1-1);
+}
+
 
 /* ===== MENU TOGGLE ===== */
 .menu-toggle {
@@ -128,7 +146,7 @@ body {
 }
 
 .menu li {
-  margin: 1.2rem 0;
+  margin: 1.9rem 0;
 }
 
 .menu a {
@@ -1414,7 +1432,6 @@ body {
   background: #0f0f0f;
   color: #bbb;
   padding: 100px 0 40px;
-  font-size: 14px;
 }
 
 .footer-container {
@@ -1428,74 +1445,64 @@ body {
 ================================ */
 
 .footer-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
 }
 
-.footer-brand img {
+.footer-col h4 {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
   max-width: 180px;
+  margin-bottom: 20px;
 }
 
-.footer-info p {
+.footer-col p {
+  font-size: 14px;
   line-height: 1.8;
   color: #aaa;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-/* ==============================
-   DIVISOR
-================================ */
-
-.footer-divider {
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,0.08);
-  margin: 50px 0 40px;
+/* navegação */
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* ==============================
-   PARTE INFERIOR
-================================ */
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
+.footer-nav li {
+  margin-bottom: 12px;
 }
 
-.footer-copy p {
-  font-size: 12px;
-  color: #777;
-  line-height: 1.6;
-}
-
-.footer-copy a {
-  color: #777;
+.footer-nav a {
+  color: #aaa;
+  font-size: 14px;
   text-decoration: none;
-  transition: color .3s ease;
+  transition: color .3s ease, padding-left .3s ease;
 }
 
-.footer-copy a:hover {
+.footer-nav a:hover {
   color: #b11226;
+  padding-left: 6px;
 }
 
-/* ==============================
-   REDES SOCIAIS
-================================ */
-
+/* redes */
 .footer-social {
   display: flex;
-  gap: 18px;
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .footer-social a {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border: 1px solid rgba(255,255,255,0.15);
   display: flex;
   align-items: center;
@@ -1510,25 +1517,55 @@ body {
   transform: translateY(-3px);
 }
 
+/* divisor */
+.footer-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 60px 0 30px;
+}
+
+/* ==============================
+   PARTE FINAL
+================================ */
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: #777;
+}
+
+.footer-privacy {
+  font-size: 12px;
+  color: #777;
+  text-decoration: none;
+}
+
+.footer-privacy:hover {
+  color: #b11226;
+}
+
 /* ==============================
    RESPONSIVO
 ================================ */
 
-@media (max-width: 768px) {
-
+@media (max-width: 900px) {
   .footer-main {
-    flex-direction: column;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
 
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
-  }
-
-  .footer-social {
-    margin-top: 10px;
   }
 }
 
@@ -1602,4 +1639,321 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
   }
+}
+
+
+/* ==============================
+   CTA FINAL
+================================ */
+
+.cta-final {
+  background: #111;
+  padding: 120px 0;
+}
+
+.cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.cta-index {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+.cta-title {
+  font-size: 36px;
+  font-weight: 500;
+  color: #fff;
+  margin: 10px 0;
+  position: relative;
+}
+
+/* linha animada */
+.cta-title::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #b11226;
+  margin-top: 14px;
+  transition: width .6s ease;
+}
+
+.reveal.active .cta-title::after {
+  width: 50px;
+}
+
+.cta-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ccc;
+  max-width: 480px;
+}
+
+/* botão */
+.cta-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 46px;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  overflow: hidden;
+  transition: color .4s ease, border-color .4s ease;
+}
+
+.cta-button span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #b11226;
+  transition: width .4s ease;
+}
+
+.cta-button:hover {
+  border-color: #b11226;
+}
+
+.cta-button:hover span {
+  width: 100%;
+}
+
+/* ==============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 900px) {
+  .cta-container {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .cta-action {
+    margin-top: 30px;
+  }
+}
+
+
+/* ===============================
+   ASSISTENTE FLUTUANTE
+================================ */
+
+.assistant {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  font-family: inherit;
+}
+
+/* BOTÃO */
+.assistant-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #b11226;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 10px 30px rgba(177, 18, 38, 0.35);
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.assistant-toggle i {
+  font-size: 16px;
+}
+
+.assistant-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(177, 18, 38, 0.45);
+}
+
+/* ===============================
+   CAIXA DO CHAT
+================================ */
+
+.assistant-box {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 320px;
+  background: #111;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+/* QUANDO ABERTO */
+.assistant-box.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* HEADER */
+.assistant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  background: #0f0f0f;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.assistant-close {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+.assistant-close:hover {
+  color: #fff;
+}
+
+/* =========================
+   MENSAGENS
+========================= */
+
+.assistant-messages {
+  padding: 18px;
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.assistant-message {
+  max-width: 80%;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  border-radius: 14px;
+  animation: fadeInUp .3s ease;
+}
+
+/* usuário */
+.assistant-message.user {
+  align-self: flex-end;
+  background: #b11226;
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+/* bot */
+.assistant-message.bot {
+  align-self: flex-start;
+  background: #f1f1f1;
+  color: #222;
+  border-bottom-left-radius: 4px;
+}
+
+/* loader digitando */
+.assistant-typing {
+  font-size: 13px;
+  color: #777;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.assistant-typing span {
+  width: 6px;
+  height: 6px;
+  background: #999;
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.assistant-typing span:nth-child(2) {
+  animation-delay: .2s;
+}
+.assistant-typing span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+/* animações */
+@keyframes typing {
+  0% { opacity: .3; }
+  50% { opacity: 1; }
+  100% { opacity: .3; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* FORM */
+.assistant-form {
+  display: flex;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.assistant-form input {
+  flex: 1;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #fff;
+  outline: none;
+}
+
+.assistant-form button {
+  background: #b11226;
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.assistant-form button:hover {
+  background: #d31832;
 }

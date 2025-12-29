@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Advocacia escritorio</title>
+  <title>Jurídica Aequitas Law</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,15 +19,18 @@
 
 <header class="header" id="header">
   <div class="header__container">
-    <div class="logo">
-      <span>ESCRITÓRIO DE ADVOCACIA</span>
-    </div>
+
+    <a href="#inicio" class="logo">
+      <img src="logo.png" alt="Ricardo Ramos Advocacia">
+    </a>
 
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
       <span></span>
     </button>
+
   </div>
 </header>
+
 
 <nav class="menu" id="menu">
   <ul>
@@ -408,66 +415,136 @@
   </div>
 </section>
 
+<section class="cta-final reveal">
+  <div class="cta-container">
+
+    <div class="cta-content">
+      <span class="cta-index"></span>
+      <h2 class="cta-title">Fale com um advogado</h2>
+
+      <p class="cta-text">
+        Entre em contato para receber uma orientação jurídica clara,
+        responsável e alinhada às suas necessidades.
+      </p>
+    </div>
+
+    <div class="cta-action">
+      <a href="#contato" class="cta-button">
+        Entrar em contato
+        <span></span>
+      </a>
+    </div>
+
+  </div>
+</section>
 
 <footer class="footer">
 
   <div class="footer-container">
 
-    <!-- Logo + Informações -->
+    <!-- Parte superior -->
     <div class="footer-main">
 
-      <div class="footer-brand">
-        <!-- Logo do escritório -->
-        <img src="logo.png" alt="escritorio de advocacia">
-      </div>
+      <!-- Marca -->
+      <div class="footer-col">
+        <img src="logo.png" alt="Jurídica Aequitas Law" class="footer-logo">
 
-      <div class="footer-info">
         <p>
           Av. Exemplo, nº 123 – Centro<br>
-          CEP 00000-000 – Recife / PE
+          Recife – PE · CEP 00000-000
         </p>
 
         <p>
-          contato@escritorioadvocacia.com.br
+          contato@AequitasLaw.com.br
         </p>
+      </div>
+
+      <!-- Navegação -->
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul class="footer-nav">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#areas">Áreas de Atuação</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Institucional -->
+      <div class="footer-col">
+        <h4>Institucional</h4>
+
+        <p>
+          CNPJ: 00.000.000/0001-00
+        </p>
+
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+        </div>
       </div>
 
     </div>
 
-    <!-- Linha divisória -->
+    <!-- divisor -->
     <span class="footer-divider"></span>
 
-    <!-- Rodapé inferior -->
+    <!-- rodapé final -->
     <div class="footer-bottom">
+      <p>
+        © 2025 Jurídica Aequitas Law · Criado por Adrian Soares ·
+        Todos os direitos reservados.
+      </p>
 
-      <div class="footer-copy">
-        <p>
-          <a href="#">Política de Privacidade</a> ·
-          contato@ricardoramosadvocacia.com.br
-        </p>
-
-        <p>
-          © 2025 Ricardo Ramos Advocacia · Criado por Adrian Soares ·
-          Todos os direitos reservados.
-        </p>
-      </div>
-
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook">
-          <i data-lucide="facebook"></i>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <i data-lucide="instagram"></i>
-        </a>
-        <a href="#" aria-label="WhatsApp">
-          <i data-lucide="message-circle"></i>
-        </a>
-      </div>
-
+      <a href="#" class="footer-privacy">Política de Privacidade</a>
     </div>
 
   </div>
 </footer>
+
+<!-- ASSISTENTE FLUTUANTE -->
+<div class="assistant">
+
+  <!-- BOTÃO -->
+  <button class="assistant-toggle" aria-label="Abrir assistente virtual">
+    <i class="fa-solid fa-robot"></i>
+    <span>Assistente</span>
+  </button>
+
+  <!-- JANELA DO CHAT -->
+  <div class="assistant-box">
+
+    <div class="assistant-header">
+      <span>Assistente Virtual</span>
+      <button class="assistant-close" aria-label="Fechar">
+        &times;
+      </button>
+    </div>
+
+    <div class="assistant-messages">
+      <div class="assistant-message bot">
+        Olá! 👋 Como posso ajudar você hoje?
+      </div>
+    </div>
+
+    <form class="assistant-form">
+      <input
+  type="text"
+  placeholder="Digite sua mensagem..."
+  maxlength="240"
+  required
+>
+      <button type="submit">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+
+  </div>
+</div>
+
+
 
 <script src="script.js"></script>
 
@@ -550,6 +627,108 @@ form.addEventListener('submit', e => {
 <script>
   lucide.createIcons();
 </script>
+
+<script>
+  const assistantToggle = document.querySelector('.assistant-toggle');
+  const assistantBox = document.querySelector('.assistant-box');
+  const assistantClose = document.querySelector('.assistant-close');
+
+  const assistantForm = document.querySelector('.assistant-form');
+  const assistantInput = assistantForm.querySelector('input');
+  const assistantMessages = document.querySelector('.assistant-messages');
+
+  assistantBox.classList.remove('open');
+
+  assistantToggle.addEventListener('click', () => {
+    assistantBox.classList.toggle('open');
+  });
+
+  assistantClose.addEventListener('click', () => {
+    assistantBox.classList.remove('open');
+  });
+
+  assistantForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const text = assistantInput.value.trim();
+    if (!text) return;
+
+    addUserMessage(text);
+    assistantInput.value = '';
+
+    showTyping();
+
+    setTimeout(() => {
+      removeTyping();
+      addBotMessage(getLegalResponse(text));
+    }, 1200);
+  });
+
+  function addUserMessage(text) {
+    const msg = document.createElement('div');
+    msg.className = 'assistant-message user';
+    msg.textContent = text;
+    assistantMessages.appendChild(msg);
+    scrollBottom();
+  }
+
+  function addBotMessage(text) {
+    const msg = document.createElement('div');
+    msg.className = 'assistant-message bot';
+    msg.textContent = text;
+    assistantMessages.appendChild(msg);
+    scrollBottom();
+  }
+
+  function showTyping() {
+    const typing = document.createElement('div');
+    typing.className = 'assistant-typing';
+    typing.id = 'typing';
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    assistantMessages.appendChild(typing);
+    scrollBottom();
+  }
+
+  function removeTyping() {
+    const typing = document.getElementById('typing');
+    if (typing) typing.remove();
+  }
+
+  function scrollBottom() {
+    assistantMessages.scrollTop = assistantMessages.scrollHeight;
+  }
+
+  /* =========================
+     RESPOSTAS JURÍDICAS (SIMULADAS)
+  ========================= */
+
+  function getLegalResponse(text) {
+    text = text.toLowerCase();
+
+    if (text.includes('trabalho')) {
+      return 'No Direito do Trabalho, cada situação deve ser analisada individualmente. Questões como verbas rescisórias, horas extras ou vínculos empregatícios exigem avaliação detalhada.';
+    }
+
+    if (text.includes('previdéncia')) {
+      return 'Demandas previdenciárias envolvem benefícios como aposentadoria, auxílio-doença e pensão. É importante verificar tempo de contribuição e requisitos legais.';
+    }
+
+    if (text.includes('consumidor')) {
+      return 'O Direito do Consumidor protege contra práticas abusivas, cobranças indevidas e falhas na prestação de serviços. Documentos e provas são essenciais.';
+    }
+
+    if (text.includes('civil')) {
+      return 'No Direito Civil atuamos em contratos, indenizações, obrigações e responsabilidade civil. Cada caso depende da análise dos fatos e documentos.';
+    }
+
+    if (text.includes('contato') || text.includes('atendimento')) {
+      return 'Você pode entrar em contato pelo formulário do site ou pelo WhatsApp. Um advogado retornará o mais breve possível.';
+    }
+
+    return 'Recebi sua mensagem. Para uma orientação adequada, é importante uma análise detalhada do caso. Podemos conversar melhor por meio do nosso atendimento.';
+  }
+</script>
+
 
 </body>
 </html>
